@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.IO;
+using System.Text.Json;
+/*скласти опис класу для многочлена.
+Зберігає список одночленним (коефіцієнт, ступінь, ступінь, ...).
+Методи: чи належить одночлен многочлена, сума, різниця, добуток, ділення,
+залишок від ділення, рівність двох многочленів.
+Зробити властивості класу приватними, а для їх читання створити методи-геттери*/
+namespace laba_3
+{
+    using System;
+
+    class Polynomial
+    {
+        private double[] polynomial;
+
+        public void GeneratePol(double a, double b)
+        {
+            polynomial = new double[] { 2 * a, 3 * b * b };
+        }
+
+        public void FindPol(int p)//належить масиву
+        {
+            
+            if (Array.IndexOf(polynomial, p) != -1)
+            {
+                Console.WriteLine("The monomial belongs to the polynomial");
+            }
+            else
+            {
+                Console.WriteLine("The monomial does not belong to the polynomial");
+            }
+        }
+
+        public void Sum()
+        {
+            Console.WriteLine("Sum of monomials : ");
+            Console.WriteLine(polynomial[0] + polynomial[1]);
+        }
+
+        public void Division()
+        {
+            Console.WriteLine("Division of monomials : ");
+            Console.WriteLine(polynomial[0] / polynomial[1]);
+        }
+
+        public void Product()
+        {
+            Console.WriteLine("Product of monomials : ");
+            Console.WriteLine(polynomial[0] * polynomial[1]);
+        }
+
+        public void Difference()
+        {
+            Console.WriteLine("Difference of monomials : ");
+            Console.WriteLine(polynomial[0] - polynomial[1]);
+        }
+        public void Remainder()
+        {
+            Console.WriteLine("Remainder from dividing monomials : ");
+            Console.WriteLine(polynomial[0] % polynomial[1]);
+        }
+    }
+}
+
